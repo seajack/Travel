@@ -1,8 +1,14 @@
 <template>
     <div class="header">
-        <div class="header-right">返回</div>
-        <div class="header-input">输入城市/景点/游玩主题</div>
-        <div class="header-left">城市</div>
+        <div class="header-right">
+            <div class="iconfont back-icon">&#xe624;</div>
+        </div>
+        <div class="header-input">
+            <span class="iconfont">&#xe632;</span>
+            输入城市/景点/游玩主题</div>
+        <div class="header-left">城市
+            <span class="iconfont arrow-icon">&#xe668;</span>
+        </div>
     </div>
 </template>
 
@@ -19,11 +25,14 @@
         background: #00bcd4
         color: #ffffff
         .header-left
-            width: .64rem
+            width: 1.65rem
             float: left
+            .back-icon
+                text-align: center
+                font-size: .4rem
         .header-input
             flex: 1
-            height: .64rem
+            height: .66rem
             line-height: .64rem
             margin-top: .12rem
             margin-left: .2rem
@@ -34,5 +43,9 @@
             width: 1.24rem
             float: right
             text-align: center
+            .arrow-icon
+                margin-left: -.06rem
+                font-size: .2rem
+
 
 </style>
