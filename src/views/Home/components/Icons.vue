@@ -1,7 +1,9 @@
 <template>
     <div class="icons">
-        <swiper :options="swiperOption">
-            <swiper-slide v-for="(page,index) of pages">
+        <swiper>
+            <swiper-slide
+                    v-for="(page,index) of pages"
+                    :key="index">
                 <div
                         class="icon"
                         v-for="item of page"
@@ -25,11 +27,6 @@
 		name: "HomeIcons",
 		data() {
 			return {
-				swiperOption: {
-					pagination: '.swiper-pagination',
-					loop: true,
-					autoplay: false,
-				},
 				iconsList: [{
 					id: '0001',
 					imgUrl: 'http://img1.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png',
@@ -74,15 +71,15 @@
 
 		},
 		computed: {
-			pages() {
-				const pages = []
+			pages: function () {
+				const pages = [];
 				this.iconsList.forEach((item, index) => {
-					const page = Math.floor(index / 8)
+					const page = Math.floor(index / 8);
 					if (!pages[page]) {
 						pages[page] = []
 					}
 					pages[page].push(item)
-				})
+				});
 				return pages
 			}
 
@@ -96,6 +93,7 @@
     .icons >>> .swiper-container
         height: 0
         padding-bottom: 50%
+
     .icon
         position: relative;
         overflow hidden

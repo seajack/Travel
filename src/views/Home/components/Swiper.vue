@@ -21,8 +21,8 @@
                 swiperOption: {
                     pagination: '.swiper-pagination',
                     loop: true,
-                    autoplay: false,
-                    delay: 8000,
+                    autoplay: 3000,
+                    delay: 3000,
                 },
                 swiperList: [{
                     id: '001',
