@@ -38,7 +38,7 @@
 		},
 		methods: {
 			getHomeInfo() {
-				axios.get('/mock/index.json')
+				axios.get('/api/index.json')
 					.then(this.getHomeInfoScc)
 			},
 			getHomeInfoScc(res) {
