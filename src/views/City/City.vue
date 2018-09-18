@@ -12,6 +12,7 @@
 	import CitySearch from './components/Search'
 	import CityList from './components/List'
 	import Alphabet from './components/Alphabet'
+	import axios from 'axios'
 
 	export default {
 		name: "City",
@@ -20,7 +21,16 @@
 			CitySearch,
 			CityList,
 			Alphabet
-		}
+		},
+		methods:{
+		    getCityInfo(){
+		    //此处代码没写，没有配置
+		    //axios.get()
+		    }
+		},
+		mounted(){
+		    this.getCityInfo()
+		    }
 	}
 </script>
 

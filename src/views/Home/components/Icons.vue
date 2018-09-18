@@ -1,6 +1,6 @@
 <template>
     <div class="icons">
-        <swiper>
+        <swiper :options="swiperOption">
             <swiper-slide
                     v-for="(page,index) of pages"
                     :key="index">
@@ -25,55 +25,21 @@
 <script>
 	export default {
 		name: "HomeIcons",
+		props: {
+			list: Array
+		},
 		data() {
 			return {
-				iconsList: [{
-					id: '0001',
-					imgUrl: 'http://img1.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png',
-					desc: '景点门票景点门票景点门票景点门票'
-				}, {
-					id: '0002',
-					imgUrl: 'http://img1.qunarzz.com/piao/fusion/1803/20/831d62d2e1c7be02.png',
-					desc: '名胜古迹'
-				}, {
-					id: '0003',
-					imgUrl: 'http://img1.qunarzz.com/piao/fusion/1803/20/831d62d2e1c7be02.png',
-					desc: '生活休闲'
-				}, {
-					id: '0004',
-					imgUrl: 'http://img1.qunarzz.com/piao/fusion/1803/96/c70f1e85ae4a4f02.png',
-					desc: '自然风光'
-				}, {
-					id: '0005',
-					imgUrl: 'http://img1.qunarzz.com/piao/fusion/1803/96/c70f1e85ae4a4f02.png',
-					desc: '景点门票'
-				}, {
-					id: '0006',
-					imgUrl: 'http://img1.qunarzz.com/piao/fusion/1803/96/c70f1e85ae4a4f02.png',
-					desc: '景点门票'
-				}, {
-					id: '0007',
-					imgUrl: 'http://img1.qunarzz.com/piao/fusion/1803/96/c70f1e85ae4a4f02.png',
-					desc: '景点门票'
-				}, {
-					id: '0008',
-					imgUrl: 'http://img1.qunarzz.com/piao/fusion/1803/96/c70f1e85ae4a4f02.png',
-					desc: '景点门票'
-				}, {
-					id: '0009',
-					imgUrl: 'http://img1.qunarzz.com/piao/fusion/1803/96/c70f1e85ae4a4f02.png',
-					desc: '景点门票'
+				swiperOption: {
+					autoplay: false
 				}
-
-
-				]
 			}
 
 		},
 		computed: {
 			pages: function () {
 				const pages = [];
-				this.iconsList.forEach((item, index) => {
+				this.list.forEach((item, index) => {
 					const page = Math.floor(index / 8);
 					if (!pages[page]) {
 						pages[page] = []
@@ -106,9 +72,9 @@
             top: 0
             left: 0
             right: 0
-            bottom: .44rem
+            bottom: .4rem
             box-sizing: border-box
-            paddding: .1rem
+            paddding: .25
             .icon-img-content
                 display: block
                 margin: 0 auto
@@ -118,8 +84,8 @@
             left: 0
             right: 0
             bottom: 0
-            line-height: .44rem
-            height: .44rem
+            line-height: .4rem
+            height: .4rem
             color: $darkTextColor
             text-align center
             ellipse()

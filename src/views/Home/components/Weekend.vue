@@ -5,7 +5,7 @@
         </div>
         <ul>
             <li class="item border-bottom"
-                v-for="item of weekendList"
+                v-for="item of list"
                 :key="item.id">
                 <div class="item-img-wrapper">
                     <img class="item-img"
@@ -23,30 +23,9 @@
 <script>
 	export default {
 		name: "Weekend",
-		data() {
-			return {
-				weekendList: [
-					{
-						id: '001',
-						imgUrl: 'http://img1.qunarzz.com/sight/source/1505/7d/df6ff468331c43.jpg_r_640x214_1f3783d0.jpg',
-						title: '上海必游TOP10',
-						desc: '中西合璧，现代和传统各有各的精彩'
-					},
-					{
-						id: '002',
-						imgUrl: 'http://img1.qunarzz.com/sight/source/1505/b7/2f4621a3a4e12c.jpg_r_640x214_d55c10ba.jpg',
-						title: '学生最爱TOP10',
-						desc: '学习之余最爱玩耍，爱玩的你不可错过'
-					},
-					{
-						id: '003',
-						imgUrl: 'http://img1.qunarzz.com/sight/source/1603/ad/69b0fc5f48ad5f.jpg_r_640x214_b0fd5c7b.jpg',
-						title: '亲子时光TOP10',
-						desc: '走进自然或玩转乐园，感知大千世界'
-					}
-				]
-			}
-		}
+        props:{
+			list: Array
+        }
 	}
 </script>
 
@@ -62,7 +41,7 @@
     .item-img-wrapper
         overflow: hidden
         height: 0
-        padding-bottom: 34%
+        padding-bottom: 37.09%
         .item-img
             width: 100%
     .item-info

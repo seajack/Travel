@@ -5,7 +5,7 @@
         </div>
         <ul>
             <li class="item border-bottom"
-            v-for="item of recommendList"
+            v-for="item of list"
             :key="item.id">
                 <img class="item-img"
                      :src="item.imgUrl">
@@ -22,36 +22,9 @@
 <script>
 	export default {
 		name: "Recommend",
-		data() {
-			return {
-				recommendList:[
-                    {
-						id: '001',
-						imgUrl: 'http://img1.qunarzz.com/sight/p0/201403/14/637beee93f571bd208bd20610c848e64.jpg_150x150_e80b0d91.jpg',
-						title: '应县木塔(AAAA景区)',
-						desc: '应县 木塔与 巴黎 埃菲尔铁塔和 比萨斜塔并称为世界三大奇塔。'
-                    },
-					{
-						id: '002',
-						imgUrl: 'http://img1.qunarzz.com/sight/p0/201403/14/637beee93f571bd208bd20610c848e64.jpg_150x150_e80b0d91.jpg',
-						title: '应县木塔(AAAA景区)',
-						desc: '应县 木塔与 巴黎 埃菲尔铁塔和 比萨斜塔并称为世界三大奇塔。'
-					},
-					{
-						id: '003',
-						imgUrl: 'http://img1.qunarzz.com/sight/p0/201403/14/637beee93f571bd208bd20610c848e64.jpg_150x150_e80b0d91.jpg',
-						title: '应县木塔(AAAA景区)',
-						desc: '应县 木塔与 巴黎 埃菲尔铁塔和 比萨斜塔并称为世界三大奇塔。'
-					},
-					{
-						id: '004',
-						imgUrl: 'http://img1.qunarzz.com/sight/p0/201403/14/637beee93f571bd208bd20610c848e64.jpg_150x150_e80b0d91.jpg',
-						title: '应县木塔(AAAA景区)',
-						desc: '应县 木塔与 巴黎 埃菲尔铁塔和 比萨斜塔并称为世界三大奇塔。'
-					},
-				]
-		}
-		}
+        props:{
+			list: Array
+        }
 	}
 </script>
 
