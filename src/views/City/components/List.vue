@@ -23,7 +23,9 @@
             </div>
             <div class="area"
                  v-for="(item, key) of cities"
-                 :key="key">
+                 :key="key"
+                 :ref="key"
+            >
                 <div class="title border-topbottom">{{key}}</div>
                 <div class="item-list">
                     <div class="item border-bottom"
@@ -43,40 +45,54 @@
 	import Bscroll from 'better-scroll'
 
 	export default {
+		name: "CityList",
 		props: {
 			cities: Object,
-			hot: Array
+			hot: Array,
+			letter: String
 		},
-		name: "CityList",
 		mounted() {
 			this.scroll = new Bscroll(this.$refs.wrapper)
+		},
+		watch: {
+			letter() {
+				if (this.letter) {
+					const element = this.$refs[this.letter][0];
+					this.scroll.scrollToElement(element)
+				}
+			}
 		}
 	}
 </script>
 
 <style lang="stylus" scoped>
+    @import "~styles/varibles.styl"
     .border-topbottom
         &:before
             border-color: #ccc
         &:after
             border-color: #ccc
 
+    .border-bottom
+        &:before
+            border-color: #ccc
+
     .list
         overflow: hidden
-        position: absolute;
+        position: absolute
         top: 1.58rem
         left: 0
         right: 0
         buttom: 0
-
+        /*多大的坑啊，不设height 100%就不滚动*/
+        height 100%
         .title
             line-height .44rem
             background: #eee
             padding-left .2rem
             color: #666
-            font-size: .26
+            font-size: .26rem
             text-align: left
-
         .button-list
             overflow hidden
             padding: .1rem .6rem .1rem .1rem
@@ -87,14 +103,13 @@
                     margin: .1rem
                     padding: .1rem 0
                     text-align: center
-                    border: .02rem solid #ccc
-
+                    border: .02rem solid aqua
+                    border-radius .08rem
+                    background $bgColor
         .item-list
             .item
                 line-height: .76rem
                 color: #666
                 padding-left: .2rem
                 text-align left
-
-
 </style>
