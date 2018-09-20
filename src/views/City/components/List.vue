@@ -72,11 +72,12 @@
             border-color: #ccc
         &:after
             border-color: #ccc
-
     .border-bottom
         &:before
             border-color: #ccc
-
+    .border-bottom
+        &:before
+            border-color: #ccc
     .list
         overflow: hidden
         position: absolute
@@ -104,8 +105,10 @@
                     padding: .1rem 0
                     text-align: center
                     border: .02rem solid aqua
-                    border-radius .08rem
                     background $bgColor
+                    border-radius .1rem
+                    background-color: $bgColor
+                    color: #ffffff
         .item-list
             .item
                 line-height: .76rem
