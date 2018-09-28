@@ -9,6 +9,8 @@
                         class="search-item border-bottom"
                         v-for="item of list"
                         :key="item.id"
+                        @click="handleCityClick(item.name)"
+                        @touchstart="handleCityClick(item.name)"
                 >
                     {{item.name}}
                 </li>
@@ -21,7 +23,8 @@
 </template>
 
 <script>
-    import Bscroll from 'better-scroll'
+	import Bscroll from 'better-scroll'
+
 	export default {
 		name: "Search",
 		props: {
@@ -34,11 +37,17 @@
 				timer: null
 			}
 		},
-      computed:{
-			hasNoData(){
+		computed: {
+			hasNoData() {
 				return !this.list.length
-            }
-      },
+			}
+		},
+		methods: {
+			handleCityClick(city) {
+				this.$store.commit('changeCity', city)
+				this.$router.push('/')
+			}
+		},
 		watch: {
 			keyword() {
 				if (this.timer) {
@@ -46,8 +55,8 @@
 				}
 				if (!this.keyword) {
 					this.list = []
-                  return
-                }
+					return
+				}
 				this.timer = setTimeout(() => {
 					const result = [];
 					for (let i in this.cities) {
@@ -58,14 +67,14 @@
 							}
 						})
 					}
-					this.list=result
+					this.list = result
 				}, 100)
 			}
 		},
-      mounted(){
-			this.scroll=new Bscroll(this.$refs.search)
+		mounted() {
+			this.scroll = new Bscroll(this.$refs.search)
 
-      }
+		}
 	}
 </script>
 
@@ -83,7 +92,8 @@
             line-height: .62rem
             text-align: center
             border-radius .06rem
-            font-size: .2rem
+            font-size: .26rem
+
     .search-content
         z-index: 1
         overflow: hidden;
